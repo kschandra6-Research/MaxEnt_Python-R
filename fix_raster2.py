@@ -1,0 +1,16 @@
+import pathlib
+p = pathlib.Path("C:/Users/DuDu-PC/Downloads/MaxEnt_Python+R/app/python/raster_processor.py")
+content = p.read_text()
+# Fix the type hint issues in docstrings
+content = content.replace("prediction_array: 2D array of predictions", "prediction_array - 2D array of predictions")
+content = content.replace("output_path: Output file path", "output_path - Output file path")
+content = content.replace("metadata: Raster metadata dictionary", "metadata - Raster metadata dictionary")
+content = content.replace("raster_stack: Dict with \"data\" (bands, height, width) and \"mask\"", "raster_stack - Dict with data and mask")
+content = content.replace("points_df: DataFrame with \"x\", \"y\" columns", "points_df - DataFrame with x, y columns")
+content = content.replace("raster_stack: Dict with \"data\" and \"mask\"", "raster_stack - Dict with data and mask")
+content = content.replace("n_points: Number of background points", "n_points - Number of background points")
+content = content.replace("random_seed: Random seed for reproducibility", "random_seed - Random seed for reproducibility")
+content = content.replace("raster_dir: Directory containing raster files", "raster_dir - Directory containing raster files")
+content = content.replace("target_crs: Target CRS for reprojection (e.g., \"EPSG:4326\")", "target_crs - Target CRS for reprojection")
+p.write_text(content)
+print("Fixed type hints")
